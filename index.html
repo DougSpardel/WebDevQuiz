@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Slideshow</title>
+    <!-- Link to an external stylesheet for styling -->
+    <link rel="stylesheet" href="./Assets/style.css">
+</head>
+<body>
+    <!-- Main quiz container -->
+    <div class="quiz-container">
+        <!-- Display the current quiz question -->
+        <div class="quiz-question">
+            <p id="question-text"></p>
+        </div>
+        <!-- List of answer choices -->
+        <div class="quiz-choices">
+            <ul id="choices-list"></ul>
+        </div>
+        <!-- Display feedback for the user's answer -->
+        <div class="quiz-feedback">
+            <p id="feedback-text"></p>
+        </div>
+        <!-- Timer display -->
+        <div class="timer">
+            Time: <span id="timer">60</span>
+        </div>
+        <!-- Button to proceed to the next question -->
+        <button id="next-button">Next</button>
+    </div>
+
+    <!-- Section to display the user's score -->
+    <div class="user-score">
+        <p>Your Score: <span id="score">0</span></p>
+    </div>
+
+    <!-- Section to display high scores (initially hidden) -->
+    <div class="high-scores" style="display: none;">
+        <h2>High Scores</h2>
+        <!-- List to display high scores -->
+        <ul id="high-scores-list"></ul>
+    </div>
+
+    <!-- Input field to enter user's initials (initially hidden) -->
+    <input type="text" id="initials-input" placeholder="Enter your initials" style="display: none;">
+    <!-- Button to save user's score (initially hidden) -->
+    <button id="save-button" style="display: none;">Save</button>
+
+    <!-- Link to an external JavaScript file for quiz logic -->
+    <script src="./Assets/quiz.js"></script>
+</body>
+</html>
