@@ -1,45 +1,84 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f7ff; /* Light blue background */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.left-strip {
+    background-color: #004080; /* Dark blue left strip */
+    width: 20%;
+    height: 100%;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .quiz-container {
-    max-width: 600px;
-    margin: 0 auto;
+    background-color: #ffffff; /* White quiz container */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    width: 100%;
+    max-width: 600px;
     text-align: center;
 }
 
 .quiz-question {
     font-size: 24px;
+    color: #004080; /* Darker blue for the question */
     margin-bottom: 20px;
 }
 
-.quiz-choices {
-    list-style: none;
-    padding: 0;
-}
-
 .quiz-choices li {
-    display: inline-block;
-    margin: 10px;
-    cursor: pointer;
+    background-color: #004080; /* Dark blue for answer choices */
+    color: #ffffff;
+    margin: 10px 0;
     padding: 10px 20px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-}
-
-.quiz-feedback {
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-#next-button {
-    display: none;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-choices li:hover {
+    background-color: #00264d; /* Slightly darker blue on hover */
+}
+
+.quiz-feedback,
+.timer,
+.user-score,
+.high-scores,
+#initials-input,
+#save-score-button {
+    font-size: 18px;
+    color: #004080; /* Darker blue text color */
+    margin-top: 20px;
+}
+
+#next-button,
+#save-score-button {
+    background-color: #007BFF; /* Dark blue buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next-button:hover,
+#save-score-button:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
 }
