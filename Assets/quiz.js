@@ -95,16 +95,48 @@ function endQuiz() {
     // Add any other style changes as needed
 
     // Show the result container
-    document.getElementById("result-container").style.display = 'block';
+   
+    const submitButton = document.getElementById('submit-score-button');
+    submitButton.style.display = 'block';
 }
 
-
+function sendScoreByEmail(score) {
+    // Implement the AJAX request or Fetch API call here
+    // For example, using Fetch API:
+    fetch('path/to/your/server/script', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ score: score })
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById('submit-status').textContent = 'Score Sent!';
+            document.getElementById('submit-score-button').style.display = 'none';
+        } else {
+            throw new Error('Failed to send score');
+        }
+    })
+    .catch((error) => {
+        document.getElementById('submit-status').textContent = '.';
+        console.error('Error:', error);
+    });
+}
+document.addEventListener('DOMContentLoaded', function () {
+    // ... other DOMContentLoaded code ...
+    
+    document.getElementById('submit-score-button').addEventListener('click', function() {
+        const scorePercentage = (score / quizData.length) * 100;
+        sendScoreByEmail(scorePercentage.toFixed(2));
+    });
+});
 
 // Initially hide the score element
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.user-score').style.display = 'none'; // Hide score initially
     loadQuestion();
-    loadHighScores();
+    sendScoreByEmail();
 });
 
 nextButton.addEventListener("click", () => {
@@ -114,45 +146,15 @@ nextButton.addEventListener("click", () => {
     loadQuestion();
 });
 
-let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-function saveHighScores() {
-    const initials = initialsInput.value.trim().toUpperCase();
-    if (initials && initials.length <= 3) {
-        const scorePercentage = (score / quizData.length) * 100;
-        highScores.push({ initials, score: scorePercentage });
-        highScores.sort((a, b) => b.score - a.score);
-        highScores = highScores.slice(0, 10);
-        localStorage.setItem("highScores", JSON.stringify(highScores));
-        displayHighScores();
-        initialsInput.value = "";
-        document.getElementById("result-container").style.display = "none";
-        document.getElementById("high-scores-container").style.display = "block";
-    }
-}
 
-function displayHighScores() {
-    highScoresList.innerHTML = "";     
-    highScores.forEach((scoreData) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${scoreData.initials}: ${parseFloat(scoreData.score).toFixed(2)}%`;
-        highScoresList.appendChild(listItem);
-    });
-}
 
-saveScoreButton.addEventListener("click", () => {
-    saveHighScores();
-});
 
-function loadHighScores() {
-    const storedScores = localStorage.getItem("highScores");
-    if (storedScores) {
-        highScores = JSON.parse(storedScores);
-    }
-    displayHighScores();
-}
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     loadQuestion();
-    loadHighScores();
+    
+    sendScoreByEmail();
 });

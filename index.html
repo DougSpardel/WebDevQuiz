@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,11 @@
     <!-- Link to an external stylesheet for styling -->
     <link rel="stylesheet" href="./Assets/style.css">
 </head>
+
 <body>
+    <div class="left-strip">
+        <img src="path/to/your/logo.png" alt="Logo" class="logo">
+    </div>
     <!-- Main quiz container -->
     <div class="quiz-container">
         <!-- Display the current quiz question -->
@@ -24,7 +29,7 @@
         </div>
         <!-- Timer display -->
         <div class="timer">
-            Time: <span id="timer">60</span>
+             <span id="timer">60</span>
         </div>
         <!-- Button to proceed to the next question -->
         <button id="next-button">Next</button>
@@ -32,9 +37,9 @@
 
     <!-- Section to display the user's score -->
     <div class="user-score">
-        <p>Your Score: <span id="score">0</span></p>
+        <p> <span id="score">0</span></p>
     </div>
-
+   
     <!-- Section to display high scores (initially hidden) -->
     <div class="high-scores" style="display: none;">
         <h2>High Scores</h2>
@@ -45,7 +50,9 @@
     <!-- Input field to enter user's initials (initially hidden) -->
     <input type="text" id="initials-input" placeholder="Enter your initials" style="display: none;">
     <!-- Button to save user's score (initially hidden) -->
-    <button id="save-button" style="display: none;">Save</button>
+    <button id="save-score-button" style="display: none;">Save</button>
+    <button id="submit-score-button" style="display: none;">Submit Score</button>
+    <div id="submit-status"></div>
 
     <!-- Link to an external JavaScript file for quiz logic -->
     <script src="./Assets/quiz.js"></script>

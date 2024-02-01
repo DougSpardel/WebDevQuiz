@@ -32,6 +32,7 @@ body {
     width: 100%;
     max-width: 600px;
     text-align: center;
+    display: block;
 }
 
 .quiz-question {
@@ -58,7 +59,7 @@ body {
 .quiz-feedback,
 .timer,
 .user-score,
-.high-scores,
+
 #initials-input,
 #save-score-button {
     font-size: 18px;
@@ -81,4 +82,31 @@ body {
 #next-button:hover,
 #save-score-button:hover {
     background-color: #0056b3; /* Slightly darker blue on hover */
+}
+#submit-score-button {
+    background-color: #007BFF; /* Dark blue to match other buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    display: block; /* Initially hidden */
+    font-size: 18px; /* Consistent with other text elements */
+    width: 100%; /* Adjust width as needed */
+    margin-left: auto; /* Center the button */
+    margin-right: auto;
+}
+
+#submit-score-button:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    #submit-score-button {
+        width: 100%; /* Larger width on small screens */
+        padding: 10px;
+    }
 }
